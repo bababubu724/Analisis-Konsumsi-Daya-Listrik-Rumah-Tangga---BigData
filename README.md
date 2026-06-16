@@ -119,7 +119,7 @@ Hasil akhir dari keseluruhan *pipeline*.
  
 ### Distribusi Global Active Power
  
-![Distribusi Global Active Power](images/distribution_global_active_power.png)
+![Distribusi Global Active Power](images/global_active_power_distribution.png)
  
 Distribusi bersifat **right-skewed dan bimodal**:
 - **Puncak 1** (~0,3 kW) → ~750.000 data: kondisi *standby* / beban dasar rumah
@@ -127,7 +127,7 @@ Distribusi bersifat **right-skewed dan bimodal**:
 - Ekor panjang memanjang hingga **11 kW**
 ### Tren Waktu — Harian vs Bulanan
  
-![Tren Harian dan Bulanan](images/trend_harian_bulanan.png)
+![Tren Harian dan Bulanan](images/daily_weekly_activity_pattern.png)
  
 Terdapat **pola musiman tahunan yang konsisten** selama 2007–2010:
  
