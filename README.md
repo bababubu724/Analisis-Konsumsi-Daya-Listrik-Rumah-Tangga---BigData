@@ -5,29 +5,6 @@
  
 ---
  
-## 📁 Struktur Proyek
- 
-```
-├── data/
-│   └── household_power_consumption.txt
-├── images/
-│   ├── correlation_matrix.png
-│   ├── distribution_global_active_power.png
-│   ├── trend_harian_bulanan.png
-│   ├── rata_rata_per_jam.png
-│   ├── rata_rata_per_hari.png
-│   ├── pie_komposisi_energi.png
-│   ├── boxplot_outlier.png
-│   ├── diagnostic1_normal_vs_tinggi.png
-│   ├── diagnostic2_submetering_per_jam.png
-│   ├── diagnostic3_voltage_drop.png
-│   └── scatter_aktual_vs_prediksi.png
-├── notebook.ipynb
-└── README.md
-```
- 
----
- 
 ## 📊 Dataset
  
 | Atribut | Detail |
@@ -56,8 +33,50 @@
 | `Sub_metering_3` | Float | Sub-meter 3 — Pemanas Air & AC (Wh/menit) |
  
 ---
+## ⚙️ 1. Metode & Pipeline Big Data
+
+Berikut adalah alur kerja (*pipeline*) yang diterapkan dalam proyek analisis konsumsi daya listrik ini. Pendekatan yang digunakan mencakup persiapan data hingga pemodelan prediktif untuk menghasilkan *insight* yang komprehensif.
+
+![Flowchart Pipeline](images/pipeline.png)
+
+Alur kerja proyek ini dibagi menjadi tiga fase utama, yaitu **Preprocessing**, **Descriptive & Diagnostic**, serta **Predictive**. Berikut adalah rincian dari setiap tahapan:
+
+### 1. Data Ingestion (Input Data)
+Proses dimulai dengan memuat dataset mentah.
+* **Sumber Data:** File teks `household_power_consumption.txt` yang berisi rekaman penggunaan daya listrik rumah tangga.
+
+### 2. Data Quality & Preprocessing
+Tahap fundamental untuk memastikan data yang akan dianalisis valid dan bersih.
+* **Pembersihan:** Pengecekan dan penghapusan baris data yang duplikat.
+* **Imputasi:** Penanganan nilai kosong (*missing value*) pada dataset.
+* **Transformasi:** Konversi tipe data (seperti penggabungan fitur tanggal dan waktu menjadi format `Datetime` yang terstandardisasi).
+
+### 3. Descriptive Analytics
+Fase eksplorasi awal untuk memahami karakteristik dasar dari data historis.
+* **Statistik Deskriptif:** Menghitung ringkasan statistik dari setiap variabel.
+* **Eksplorasi:** Memetakan matriks korelasi antar variabel, melihat tren runtut waktu (harian vs bulanan), serta menganalisis distribusi dan pola konsumsi listrik secara umum.
+
+### 4. Diagnostic Analytics
+Analisis lanjutan untuk mencari tahu penyebab atau alasan di balik pola yang ditemukan pada tahap deskriptif.
+* **Identifikasi Anomali:** Menganalisis pemicu lonjakan daya ekstrem (*outlier*).
+* **Investigasi Teknis:** Memvalidasi fenomena penurunan tegangan (*voltage drop*) saat beban puncak.
+* **Pola Perilaku:** Mendiagnosis pola penggunaan listrik per jam dalam sehari.
+
+### 5. Pelatihan Model Prediktif (Predictive Modeling)
+Membangun model *Machine Learning* untuk memprediksi total konsumsi daya (`Global_active_power`).
+* **Algoritma:** Model dilatih menggunakan metode **Linear Regression** dan **Random Forest Regressor**.
+
+### 6. Evaluasi & Tuning Model
+Tahap validasi untuk memastikan algoritma belajar dengan baik.
+* **Pengecekan Optimalisasi:** Mengukur apakah model sudah mencapai performa yang ditargetkan. Jika *TIDAK*, *pipeline* akan melakukan iterasi kembali ke tahap pelatihan model. Jika *YA*, proses berlanjut ke tahap visualisasi evaluasi.
+* **Metrik Evaluasi:** Membandingkan sebaran data prediksi dengan data aktual menggunakan metrik *Mean Squared Error* (MSE) dan R-Squared ($R^2$).
+
+### 7. Output & Ringkasan Hasil
+Hasil akhir dari keseluruhan *pipeline*.
+* **Penyajian Data:** Melaporkan perbandingan performa antar model yang diuji.
+* **Ekstraksi Nilai:** Menghasilkan *insight* akhir yang dapat ditindaklanjuti (*actionable*) untuk keperluan efisiensi kelistrikan atau pemeliharaan infrastruktur.
  
-## 🧹 1. Data Quality (Pembersihan Data)
+## 🧹 2. Data Quality (Pembersihan Data)
  
 ### Hasil Pengecekan Kualitas Data
  
@@ -83,7 +102,7 @@
  
 ---
  
-## 📈 2. Descriptive Analytics (Eksplorasi Data)
+## 📈 3. Descriptive Analytics (Eksplorasi Data)
  
 ### Statistik Deskriptif Variabel Utama
  
@@ -168,7 +187,7 @@ Terdapat **pola musiman tahunan yang konsisten** selama 2007–2010:
 - Ribuan titik outlier memanjang hingga **11 kW**
 ---
  
-## 🔍 3. Diagnostic Analytics
+## 🔍 4. Diagnostic Analytics
  
 ### Correlation Matrix
  
@@ -230,7 +249,7 @@ Tiga temuan penting dari matriks korelasi:
  
 ---
  
-## 🤖 4. Predictive Analytics
+## 🤖 5. Predictive Analytics
  
 ### Konfigurasi Model
  
@@ -285,7 +304,7 @@ Kedua model mengikuti garis diagonal dengan baik pada konsumsi **0–2 kW** (may
  
 ---
  
-## 💡 5. Temuan Utama dari Analisis Prediktif
+## 💡 6. Temuan Utama dari Analisis Prediktif
  
 ### Temuan 1 — Pola Normal Sangat Bisa Diprediksi
 Model mencapai akurasi tinggi (**R² = 0,774**) untuk konsumsi di rentang **0–2 kW**, yang merupakan mayoritas data. Artinya, rutinitas listrik rumah tangga sehari-hari memiliki pola yang sangat kuat dan dapat diantisipasi secara sistematis.
@@ -298,7 +317,7 @@ Model kesulitan memprediksi konsumsi di atas **3 kW** karena lonjakan tersebut b
  
 ---
  
-## 🏢 6. Rekomendasi Bisnis untuk PLN / Utility Company
+## 🏢 7. Rekomendasi Bisnis untuk PLN / Utility Company
  
 ### ⚡ Rekomendasi 1 — Dynamic Load Forecasting (Optimalisasi Pembangkitan Daya)
  
@@ -327,7 +346,7 @@ Model kesulitan memprediksi konsumsi di atas **3 kW** karena lonjakan tersebut b
  
 ---
  
-## 📋 7. Ringkasan Hasil Akhir
+## 📋 8. Ringkasan Hasil Akhir
  
 | Tahap Analisis | Hasil |
 |---|---|
