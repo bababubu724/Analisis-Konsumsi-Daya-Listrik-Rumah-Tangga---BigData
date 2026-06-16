@@ -127,7 +127,7 @@ Distribusi bersifat **right-skewed dan bimodal**:
 - Ekor panjang memanjang hingga **11 kW**
 ### Tren Waktu — Harian vs Bulanan
  
-![Tren Harian dan Bulanan](images/monthly_seasonal.png)
+![Tren Harian dan Bulanan](images/monthly_seasonal_trend.png)
  
 Terdapat **pola musiman tahunan yang konsisten** selama 2007–2010:
  
