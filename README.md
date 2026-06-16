@@ -71,8 +71,6 @@ Pemodelan dilakukan untuk memprediksi nilai `Global_active_power` menggunakan fi
 | **RMSE** | 0.5382 | **0.5043** |
 | **R² Score** | 0.7423 | **0.7737** |
 
-![Perbandingan Performa Model](images/model_performance_comparison.png)
-
 ### Insights Utama dari Model:
 1. **Random Forest** mengungguli Linear Regression di semua metrik evaluasi karena mampu menangkap hubungan *nonlinear* serta interaksi kompleks antar sub-metering.
 2. Pada **Linear Regression**, `Global_reactive_power` memiliki koefisien terbesar (0,867) karena skala fiturnya yang kecil. Namun pada **Random Forest**, `Sub_metering_3` menjadi fitur yang paling dominan (*Feature Importance* sebesar 0,539) dalam menentukan akurasi prediksi.
