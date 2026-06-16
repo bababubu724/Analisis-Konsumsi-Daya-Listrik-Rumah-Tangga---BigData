@@ -127,7 +127,7 @@ Distribusi bersifat **right-skewed dan bimodal**:
 - Ekor panjang memanjang hingga **11 kW**
 ### Tren Waktu — Harian vs Bulanan
  
-![Tren Harian dan Bulanan](images/daily_weekly_activity_pattern.png)
+![Tren Harian dan Bulanan](images/monthly_seasonal.png)
  
 Terdapat **pola musiman tahunan yang konsisten** selama 2007–2010:
  
@@ -138,7 +138,7 @@ Terdapat **pola musiman tahunan yang konsisten** selama 2007–2010:
  
 ### Pola Konsumsi per Jam dalam Sehari
  
-![Rata-rata Konsumsi per Jam](images/rata_rata_per_jam.png)
+![Rata-rata Konsumsi per Jam](images/average_by_hour.png)
  
 | Rentang Waktu | Konsumsi Rata-rata | Keterangan |
 |---|---|---|
@@ -151,7 +151,7 @@ Terdapat **pola musiman tahunan yang konsisten** selama 2007–2010:
  
 ### Pola Konsumsi per Hari dalam Seminggu
  
-![Rata-rata Konsumsi per Hari](images/rata_rata_per_hari.png)
+![Rata-rata Konsumsi per Hari](images/daily_weekly_activity_pattern.png)
  
 | Hari | Konsumsi Rata-rata |
 |---|---|
@@ -167,7 +167,7 @@ Terdapat **pola musiman tahunan yang konsisten** selama 2007–2010:
  
 ### Komposisi Energi Rumah Tangga
  
-![Pie Chart Komposisi Energi](images/pie_komposisi_energi.png)
+![Pie Chart Komposisi Energi](images/sub_matering_contribution_pie.png)
  
 | Sub-meter | Area | Proporsi dari Total Energi |
 |---|---|---|
@@ -180,7 +180,7 @@ Terdapat **pola musiman tahunan yang konsisten** selama 2007–2010:
  
 ### Deteksi Outlier (Boxplot)
  
-![Boxplot Outlier](images/boxplot_outlier.png)
+![Boxplot Outlier](images/outlier_boxplot.png)
  
 - **Median** konsumsi: ~0,6 kW
 - **IQR**: 0,3 – 1,5 kW
@@ -207,7 +207,7 @@ Tiga temuan penting dari matriks korelasi:
  
 ### Diagnostic 1 — Komposisi Sub-metering: Konsumsi Normal vs Tinggi
  
-![Diagnostic 1 Normal vs Tinggi](images/diagnostic1_normal_vs_tinggi.png)
+![Diagnostic 1 Normal vs Tinggi](images/diagnostic_1.png)
  
 | Sub-meter | Konsumsi Normal (Wh/menit) | Konsumsi Tinggi/Outlier >3,36 kW (Wh/menit) | Kenaikan |
 |---|---|---|---|
@@ -221,7 +221,7 @@ Tiga temuan penting dari matriks korelasi:
  
 ### Diagnostic 2 — Kontribusi Sub-metering per Jam dalam Sehari
  
-![Diagnostic 2 Sub-metering per Jam](images/diagnostic2_submetering_per_jam.png)
+![Diagnostic 2 Sub-metering per Jam](images/diagnostic_2.png)
  
 `Sub_metering_3` mendominasi hampir seluruh batang di setiap jam, terutama pada pukul **07.00–09.00** dan **19.00–21.00**, yang menjelaskan langsung pola puncak harian yang ditemukan di Descriptive.
  
@@ -234,7 +234,7 @@ Tiga temuan penting dari matriks korelasi:
  
 ### Diagnostic 3 — Voltage Drop pada Beban Tinggi
  
-![Diagnostic 3 Voltage Drop](images/diagnostic3_voltage_drop.png)
+![Diagnostic 3 Voltage Drop](images/diagnostic_3.png)
  
 | Rentang Daya | Voltage Rata-rata |
 |---|---|
@@ -298,7 +298,7 @@ Tiga temuan penting dari matriks korelasi:
  
 ### Scatter Plot: Aktual vs Prediksi
  
-![Scatter Plot Aktual vs Prediksi](images/scatter_aktual_vs_prediksi.png)
+![Scatter Plot Aktual vs Prediksi](images/actual_vs_predicted_scatter.png)
  
 Kedua model mengikuti garis diagonal dengan baik pada konsumsi **0–2 kW** (mayoritas data), namun mulai menyimpang pada konsumsi **>3 kW** — wajar, karena event ekstrem jauh lebih sedikit jumlahnya sehingga model kurang terlatih untuk kasus tersebut.
  
