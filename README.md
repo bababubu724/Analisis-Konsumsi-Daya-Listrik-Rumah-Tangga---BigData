@@ -167,7 +167,7 @@ Terdapat **pola musiman tahunan yang konsisten** selama 2007–2010:
  
 ### Komposisi Energi Rumah Tangga
  
-![Pie Chart Komposisi Energi](images/sub_matering_contribution_pie.png)
+![Pie Chart Komposisi Energi](images/sub_metering_contribution_pie.png)
  
 | Sub-meter | Area | Proporsi dari Total Energi |
 |---|---|---|
