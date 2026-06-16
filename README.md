@@ -41,37 +41,37 @@ Berikut adalah alur kerja (*pipeline*) yang diterapkan dalam proyek analisis kon
 
 Alur kerja proyek ini dibagi menjadi tiga fase utama, yaitu **Preprocessing**, **Descriptive & Diagnostic**, serta **Predictive**. Berikut adalah rincian dari setiap tahapan:
 
-### 1. Data Ingestion (Input Data)
+### 1) Data Ingestion (Input Data)
 Proses dimulai dengan memuat dataset mentah.
 * **Sumber Data:** File teks `household_power_consumption.txt` yang berisi rekaman penggunaan daya listrik rumah tangga.
 
-### 2. Data Quality & Preprocessing
+### 2) Data Quality & Preprocessing
 Tahap fundamental untuk memastikan data yang akan dianalisis valid dan bersih.
 * **Pembersihan:** Pengecekan dan penghapusan baris data yang duplikat.
 * **Imputasi:** Penanganan nilai kosong (*missing value*) pada dataset.
 * **Transformasi:** Konversi tipe data (seperti penggabungan fitur tanggal dan waktu menjadi format `Datetime` yang terstandardisasi).
 
-### 3. Descriptive Analytics
+### 3) Descriptive Analytics
 Fase eksplorasi awal untuk memahami karakteristik dasar dari data historis.
 * **Statistik Deskriptif:** Menghitung ringkasan statistik dari setiap variabel.
 * **Eksplorasi:** Memetakan matriks korelasi antar variabel, melihat tren runtut waktu (harian vs bulanan), serta menganalisis distribusi dan pola konsumsi listrik secara umum.
 
-### 4. Diagnostic Analytics
+### 4) Diagnostic Analytics
 Analisis lanjutan untuk mencari tahu penyebab atau alasan di balik pola yang ditemukan pada tahap deskriptif.
 * **Identifikasi Anomali:** Menganalisis pemicu lonjakan daya ekstrem (*outlier*).
 * **Investigasi Teknis:** Memvalidasi fenomena penurunan tegangan (*voltage drop*) saat beban puncak.
 * **Pola Perilaku:** Mendiagnosis pola penggunaan listrik per jam dalam sehari.
 
-### 5. Pelatihan Model Prediktif (Predictive Modeling)
+### 5) Pelatihan Model Prediktif (Predictive Modeling)
 Membangun model *Machine Learning* untuk memprediksi total konsumsi daya (`Global_active_power`).
 * **Algoritma:** Model dilatih menggunakan metode **Linear Regression** dan **Random Forest Regressor**.
 
-### 6. Evaluasi & Tuning Model
+### 6) Evaluasi & Tuning Model
 Tahap validasi untuk memastikan algoritma belajar dengan baik.
 * **Pengecekan Optimalisasi:** Mengukur apakah model sudah mencapai performa yang ditargetkan. Jika *TIDAK*, *pipeline* akan melakukan iterasi kembali ke tahap pelatihan model. Jika *YA*, proses berlanjut ke tahap visualisasi evaluasi.
 * **Metrik Evaluasi:** Membandingkan sebaran data prediksi dengan data aktual menggunakan metrik *Mean Squared Error* (MSE) dan R-Squared ($R^2$).
 
-### 7. Output & Ringkasan Hasil
+### 7) Output & Ringkasan Hasil
 Hasil akhir dari keseluruhan *pipeline*.
 * **Penyajian Data:** Melaporkan perbandingan performa antar model yang diuji.
 * **Ekstraksi Nilai:** Menghasilkan *insight* akhir yang dapat ditindaklanjuti (*actionable*) untuk keperluan efisiensi kelistrikan atau pemeliharaan infrastruktur.
